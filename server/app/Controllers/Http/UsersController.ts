@@ -30,7 +30,7 @@ export default class UsersController {
           lastname: lastname,
           email: email,
           password: password,
-          newpassword: newpassword,
+          
           phone: phone,
         });
         return response.ok({ message: "User Created", user: user });
@@ -47,15 +47,24 @@ export default class UsersController {
   public async update({ request, response, params }: HttpContextContract) {
     try {
       // const userId = params.id;
+
       const ispresent = await User.query().where("id", "=", params.id).first();
+
+      //1.One way to update data
+      // const ispresent = await User.query().where("id", "=", params.id).first();
+      // const userdata = request.only(['name', 'age', 'email', 'gender'])
+      // ispresent.merge(userdata);
+      // await ispresent.save();
+
       const payload = request.body();
       // return response.ok(ispresent);
       if (ispresent) {
+        //2.Second way to update data
         ispresent.firstname = payload.firstname;
         ispresent.lastname = payload.lastname;
         ispresent.email = payload.email;
         ispresent.password = payload.password;
-        ispresent.newpassword = payload.newpassword;
+      
         ispresent.email = payload.email;
         ispresent.phone = payload.phone;
         const savedUser = await ispresent.save();
