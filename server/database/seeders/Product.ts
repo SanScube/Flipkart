@@ -4,7 +4,6 @@ import Product from "./../../app/Models/Product";
 export default class extends BaseSeeder {
   public async run() {
     // Write your database queries inside the run method
-
     await Product.create({
       name: "rahul",
       description: "Delivery by10 Aug, Wednesday|Free₹40?",

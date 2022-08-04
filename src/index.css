@@ -5,3 +5,18 @@
   display: grid;
   grid-template-columns: 1fr, 1fr, 1fr, 1fr;
 }
+
+form input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 0.2rem;
+  color: white;
+  padding: 0.2rem;
+  @apply w-full;
+}
+
+form button {
+  @apply bg-yellow-400 w-44 m-auto rounded py-2;
+}

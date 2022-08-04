@@ -1,24 +1,17 @@
 import BaseSeeder from "@ioc:Adonis/Lucid/Seeder";
-import User from "./../../app/Models/User";
+import user from "./../../app/Models/user";
 
 export default class extends BaseSeeder {
   public async run() {
     // Write your database queries inside the run method
-
-    await User.createMany([
+    await user.createMany([
       {
-        firstname: "girisha",
-        lastname: "V",
         email: "g@v.me",
-        password: "123",
-        phone: "9875845845",
+        password: "sanket",
       },
       {
-        firstname: "sanket",
-        lastname: "chaware",
         email: "s@c.me",
-        password: "sanket@123",
-        phone: "8378910529",
+        password: "chaware",
       },
     ]);
   }

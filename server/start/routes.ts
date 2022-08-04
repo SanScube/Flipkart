@@ -19,13 +19,10 @@
 */
 
 import Route from "@ioc:Adonis/Core/Route";
-import ProductsController from "./../app/Controllers/Http/ProductsController";
-import UsersController from "./../app/Controllers/Http/UsersController";
 
-// Route.get("/products", "ProductsController.index");
-// Route.post("/add-product", "ProductsController.store");
-// Route.patch("/product", "ProductsController.update");
-// Route.delete("/product", "ProductsController.destroy");
+Route.group(() => {
+  Route.resource("product", "ProductsController");
+}).middleware("auth");
 
-Route.resource("product", "ProductsController");
-Route.resource("user", "UsersController");
+Route.post("register", "AuthController.register");
+Route.post("login", "AuthController.login");

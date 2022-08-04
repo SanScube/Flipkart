@@ -6,6 +6,7 @@ import { Home } from './Pages/Home';
 import { Navbar } from './components/Navbar';
 import { Provider } from "react-redux"
 import store from './store/store';
+import { Login } from './Pages/Login';
 
 
 function App() {
@@ -17,10 +18,11 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/cart" element={<Cart />} />
-            
+            <Route exact path="/login" element={<Login />} />
+
           </Routes>
         </BrowserRouter >
-      </Provider>
+      </Provider> 
 
     </div>
   );
